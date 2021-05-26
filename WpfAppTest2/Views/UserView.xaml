@@ -1,0 +1,32 @@
+﻿<Window x:Class="WpfAppTest2.Views.UserView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppTest2.Views"
+        xmlns:localHelpers="clr-namespace:WpfAppTest2.Helpers"
+        xmlns:localViewModels="clr-namespace:WpfAppTest2.ViewModel"
+        d:DataContext="{d:DesignInstance Type=localViewModels:UserViewModel}"
+        localHelpers:DialogCloser.DialogResult="{Binding DialogResult}"
+        mc:Ignorable="d" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen"
+        Title="UserView" Height="350" Width="400"
+        
+        >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="编辑用户信息" FontWeight="Bold" FontSize="30" Margin="10 0 0 0" />
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="姓名" VerticalAlignment="Center" />
+            <TextBox Width="200" Height="25" Text="{Binding Model.Name}"/>
+            
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right">
+            <Button Content="确定" Width="70" Height="25" Command="{Binding ConfirmCommand}"/>
+            <Button Content="取消" Width="70" Height="25" Command="{Binding CancelCommand}" Margin="10 0 0 0"/>
+        </StackPanel>
+    </Grid>
+</Window>
